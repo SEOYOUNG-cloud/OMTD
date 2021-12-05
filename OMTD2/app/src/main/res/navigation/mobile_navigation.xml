@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.omtd2.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
+            app:destination="@id/nav_home_second" />
+        <action
+            android:id="@+id/action_HomeFragment_to_JapanFragment"
+            app:destination="@id/nav_japan" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_home_second"
+        android:name="com.example.omtd2.ui.home.HomeSecondFragment"
+        android:label="@string/home_second"
+        tools:layout="@layout/fragment_home_second">
+        <action
+            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
+            app:destination="@id/nav_home" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_japan"
+        android:name="com.example.omtd2.ui.Japanstore"
+        android:label="@string/japan_store"
+        tools:layout="@layout/fragment_japanstore">
+        <action
+            android:id="@+id/action_JapanFragment_to_MenuFragment"
+            app:destination="@id/nav_menu" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_review"
+        android:name="com.example.omtd2.ui.ReviewActivity"
+        android:label="REVIEW"
+        tools:layout="@layout/review_main">
+
+        <action
+            android:id="@+id/action_reviewFragment_to_menuFragment"
+            app:destination="@id/nav_menu" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_menu"
+        android:name="com.example.omtd2.ui.menufragment"
+        android:label="@string/menu_menu"
+        tools:layout="@layout/menu_main">
+
+        <action
+            android:id="@+id/action_menuFragment_to_reviewFragment"
+            app:destination="@id/nav_review" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_Login"
+        android:name="com.example.omtd2.LoginActivity"
+        android:label="@string/menu_Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_menuLogin_to_RegisterFragment"
+            app:destination="@id/nav_Register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_Register"
+        android:name="com.example.omtd2.RegisterActivity"
+        android:label="회원가입"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>
